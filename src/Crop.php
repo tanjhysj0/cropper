@@ -102,7 +102,8 @@ class Crop extends File
             $this->callInterventionMethods($imagePath);
             return $imagePath;
         } else {
-            preg_match('/base64img\/.*/is',$base64,$matches);
+            $directory = ltrim($this->getDirectory(), '/');
+            preg_match('/' . $directory . '\/.*/is',$base64,$matches);
             return isset($matches[0]) ? $matches[0] : $base64;
         }
     }
