@@ -103,6 +103,7 @@ class Crop extends File
             return $imagePath;
         } else {
             $directory = ltrim($this->getDirectory(), '/');
+            $directory = str_replace('/',"\/",$directory);
             preg_match('/' . $directory . '\/.*/is',$base64,$matches);
             return isset($matches[0]) ? $matches[0] : $base64;
         }
